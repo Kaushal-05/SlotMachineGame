@@ -1,8 +1,8 @@
 using UnityEngine;
 
 
-/// Represents a single slot symbol (e.g. Cherry, Bar, Seven).
-/// Created as a ScriptableObject asset so you can configure symbols
+// Represents a single slot symbol (e.g. Cherry, Bar, Seven).
+// Created as a ScriptableObject asset so you can configure symbols
 [CreateAssetMenu(fileName = "NewSlotSymbol", menuName = "Slot Game/Symbol")]
 public class SlotSymbol : ScriptableObject
 {

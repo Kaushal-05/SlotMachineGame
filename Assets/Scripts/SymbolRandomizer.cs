@@ -3,7 +3,7 @@ using UnityEngine;
 
 public static class SymbolRandomizer
 {
-    /// Picks a random symbol from the pool, respecting each symbol's spinWeight using UnityEngine.Random.Range.
+    // Picks a random symbol from the pool, respecting each symbol's spinWeight using UnityEngine.Random.Range.
 
     public static SlotSymbol GetWeightedRandomSymbol(List<SlotSymbol> symbolPool)
     {
