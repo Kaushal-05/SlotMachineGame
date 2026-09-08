@@ -9,6 +9,7 @@ public class GameFlowController : MonoBehaviour
     [Header("References")]
     [SerializeField] private SlotMachine slotMachine;
     [SerializeField] private PayoutManager payoutManager;
+    [SerializeField] private PopupController popupController;
 
     [Header("Optional UI to disable while spinning")]
     [SerializeField] private Button spinButton;
@@ -35,7 +36,7 @@ public class GameFlowController : MonoBehaviour
         if (!payoutManager.TryPlaceBet())
         {
             Debug.Log("Not enough credits to spin.");
-            // Hook a "not enough credits" popup here if you want one.
+            if (popupController) popupController.ShowInsufficientCreditsMessage();
             return;
         }
 
