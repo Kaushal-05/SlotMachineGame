@@ -15,4 +15,4 @@ MonoBehaviour:
   icon: {fileID: 2193077994593488821, guid: ea32eb4cd38911b4c99bce255654ea78, type: 3}
   symbolName: Seven
   payoutMultiplier: 10
-  spinWeight: 3
+  spinWeight: 4

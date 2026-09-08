@@ -7,6 +7,7 @@ public class PopupController : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private SlotMachine slotMachine;
+    [SerializeField] private AudioManager audioManager;
     [SerializeField] private GameObject popupPanel;      // the WinPopup GameObject
     [SerializeField] private TMP_Text popupMessageText;    // Popup Panel MessageText inside it
 
@@ -29,7 +30,7 @@ public class PopupController : MonoBehaviour
     private void HandleSpinResolved(bool won, SlotSymbol matched, float multiplier)
     {
         if (!won) return; // losses update silently via the credits text - no popup needed
-
+        if (audioManager) audioManager.PlayWin(); 
         string symbolName = matched != null ? matched.symbolName : "Symbol";
         ShowMessage($"You won {multiplier}x!\n(Three {symbolName}s)");
     }

@@ -11,6 +11,9 @@ public class SlotMachine : MonoBehaviour
     public void TestSpin() => StartSpin();
 
 
+    [Header("References")]
+    [SerializeField] private AudioManager audioManager;
+
     [Header("Reels")]
     [SerializeField] private List<Reel> reels;
 
@@ -54,6 +57,13 @@ public class SlotMachine : MonoBehaviour
         bool won = results.All(s => s == results[0]);
         SlotSymbol matched = won ? results[0] : null;
         float multiplier = won ? matched.payoutMultiplier : 0f;
+
+        // Jackpot condition: all reels show the Seven symbol.
+        if (won && matched.symbolName == "Seven")
+        {
+            audioManager.PlayJackpot();
+        }
+
 
         spinInProgress = false;
         onSpinResolved?.Invoke(won, matched, multiplier);

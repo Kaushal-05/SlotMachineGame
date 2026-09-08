@@ -10,6 +10,7 @@ public class GameFlowController : MonoBehaviour
     [SerializeField] private SlotMachine slotMachine;
     [SerializeField] private PayoutManager payoutManager;
     [SerializeField] private PopupController popupController;
+    [SerializeField] private AudioManager audioManager;
 
     [Header("Optional UI to disable while spinning")]
     [SerializeField] private Button spinButton;
@@ -41,6 +42,7 @@ public class GameFlowController : MonoBehaviour
         }
 
         slotMachine.StartSpin();
+        if (audioManager) audioManager.PlaySpin();
     }
 
     private void HandleSpinStarted()

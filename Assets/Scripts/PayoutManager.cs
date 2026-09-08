@@ -6,6 +6,9 @@ using UnityEngine.Events;
 
 public class PayoutManager : MonoBehaviour
 {
+    [Header("References")]
+    [SerializeField] private AudioManager audioManager;
+
     [Header("Config")]
     [SerializeField] private float startingCredits = 100f;
     [SerializeField] private float betAmount = 5f;
@@ -52,11 +55,19 @@ public class PayoutManager : MonoBehaviour
     {
         betAmount = Mathf.Max(1f, amount);
         onBetChanged?.Invoke(betAmount);
+        
     }
 
     // Connected this directly to the BetUpButton's OnClick().
-    public void IncreaseBet() => SetBetAmount(betAmount + 5f);
-
+    public void IncreaseBet()
+    {
+        SetBetAmount(betAmount + 5f);
+        if (audioManager != null) audioManager.PlayBetChange();
+    }
     // Connected this directly to the BetDownButton's OnClick().
-    public void DecreaseBet() => SetBetAmount(betAmount - 5f);
+    public void DecreaseBet()
+    {
+        SetBetAmount(betAmount - 5f);
+        if (audioManager != null) audioManager.PlayBetChange();
+    }
 }

@@ -24,7 +24,7 @@ public class Reel : MonoBehaviour
     [Tooltip("How long the final corrective snap-to-landing takes.")]
     [SerializeField] private float alignDuration = 0.3f;
     [Tooltip("Scroll speed during the free-spinning phase, in UI units/second.")]
-    [SerializeField] private float scrollSpeed = 900f;
+    [SerializeField] private float scrollSpeed =  1000f;
     [Tooltip("Vertical spacing between symbols - should roughly match your reel window's height. Leave 0 to auto-read from symbolDisplay's own height.")]
     [SerializeField] private float cellHeight = 0f;
     [Tooltip("Delay in seconds before this reel starts spinning (used to stagger reels).")]

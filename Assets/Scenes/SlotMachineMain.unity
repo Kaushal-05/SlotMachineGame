@@ -866,6 +866,7 @@ GameObject:
   - component: {fileID: 579398965}
   - component: {fileID: 579398968}
   - component: {fileID: 579398969}
+  - component: {fileID: 579398970}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -885,38 +886,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed809b8ef2cbe8f4bb564e17f975e552, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PayoutManager
+  audioManager: {fileID: 867437589}
   startingCredits: 200
   betAmount: 10
   onCreditsChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 0
+      m_Calls: []
   onBetChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 0
+      m_Calls: []
 --- !u!114 &579398966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -929,25 +907,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73bb5ca510f0aea42a7a4d51325e15ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine
+  audioManager: {fileID: 867437589}
   reels:
   - {fileID: 1668008490}
   - {fileID: 2031353227}
   - {fileID: 2023597139}
   onSpinStarted:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onSpinResolved:
     m_PersistentCalls:
       m_Calls: []
@@ -995,9 +962,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameFlowController
   slotMachine: {fileID: 579398966}
   payoutManager: {fileID: 579398965}
+  popupController: {fileID: 579398970}
+  audioManager: {fileID: 867437589}
   spinButton: {fileID: 1262862890}
   betUpButton: {fileID: 290247184}
   betDownButton: {fileID: 1373280878}
+--- !u!114 &579398970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579398964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0f32a4cb173c324ea8895b642967717, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PopupController
+  slotMachine: {fileID: 579398966}
+  audioManager: {fileID: 867437589}
+  popupPanel: {fileID: 1689795994}
+  popupMessageText: {fileID: 1630851628}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1248,7 +1233,7 @@ GameObject:
   - component: {fileID: 832029915}
   - component: {fileID: 832029914}
   m_Layer: 5
-  m_Name: ChangeBet
+  m_Name: BetButtonInfo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1373,6 +1358,152 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 832029912}
   m_CullTransparentMesh: 1
+--- !u!1 &867437588
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 867437591}
+  - component: {fileID: 867437590}
+  - component: {fileID: 867437589}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &867437589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867437588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aacb3e883d469941923bc8630a1bf7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  spinSound: {fileID: 8300000, guid: d29c5c30fb08d2446a2022cc05d51468, type: 3}
+  winSound: {fileID: 8300000, guid: 29397bca7098dae4c8907904dfc615eb, type: 3}
+  betChangeSound: {fileID: 8300000, guid: 8a229eed6053dc8428eeb14e43f2c545, type: 3}
+  jackpotSound: {fileID: 8300000, guid: d2225d9f4a3cf1848b7d3d39a497da4f, type: 3}
+--- !u!82 &867437590
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867437588}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &867437591
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867437588}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 710.2807, y: 392.51175, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &945298784
 GameObject:
   m_ObjectHideFlags: 0
@@ -2212,7 +2343,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d412f206c5f46b74abb21d09c1dd1ec7, type: 2}
   spinDuration: 2
   alignDuration: 0.3
-  scrollSpeed: 700
+  scrollSpeed: 1000
   cellHeight: 0
   startDelay: 0
   landingOvershoot: 10
@@ -2515,8 +2646,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -206, y: 0.000011444}
-  m_SizeDelta: {x: 113.1575, y: 83.772}
+  m_AnchoredPosition: {x: -233, y: 19}
+  m_SizeDelta: {x: 60.3476, y: 55.6068}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1980088684
 MonoBehaviour:
@@ -2561,7 +2692,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1980088685}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 579398970}
+        m_TargetAssemblyTypeName: PopupController, Assembly-CSharp
+        m_MethodName: ClosePopup
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1980088685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2787,7 +2930,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d412f206c5f46b74abb21d09c1dd1ec7, type: 2}
   spinDuration: 2
   alignDuration: 0.3
-  scrollSpeed: 700
+  scrollSpeed: 1000
   cellHeight: 0
   startDelay: 0
   landingOvershoot: 10
@@ -2904,7 +3047,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d412f206c5f46b74abb21d09c1dd1ec7, type: 2}
   spinDuration: 2
   alignDuration: 0.3
-  scrollSpeed: 700
+  scrollSpeed: 1000
   cellHeight: 0
   startDelay: 0
   landingOvershoot: 10
@@ -2918,3 +3061,4 @@ SceneRoots:
   - {fileID: 1882621450}
   - {fileID: 945298787}
   - {fileID: 579398967}
+  - {fileID: 867437591}
