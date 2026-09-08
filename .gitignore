@@ -12,6 +12,14 @@
 [Uu]ser[Ss]ettings/
 *.log
 
+# Don't ignore our actual WebGL build deliverables
+!/Build/
+!/Build/**
+!/Builds/
+!/Builds/**
+!/docs/
+!/docs/**
+
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
 [Mm]emoryCaptures/
