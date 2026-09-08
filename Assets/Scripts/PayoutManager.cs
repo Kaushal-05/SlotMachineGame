@@ -2,15 +2,15 @@ using UnityEngine;
 using UnityEngine.Events;
 
 
-// Manages player credits and bet amount. Subscribes to SlotMachine's
-// onSpinResolved event rather than SlotMachine knowing about credits directly.... keeps game logic and economy logic decoupled.
+//Manages player credits and bet amount Subscribes to SlotMachine's onSpinResolved event rather than SlotMachine knowing about credits directly
+
 public class PayoutManager : MonoBehaviour
 {
     [Header("Config")]
     [SerializeField] private float startingCredits = 100f;
     [SerializeField] private float betAmount = 5f;
 
-    [Header("Events (hook these to your UI text)")]
+    [Header("Events")]
     public UnityEvent<float> onCreditsChanged;
     public UnityEvent<float> onBetChanged;
 
@@ -28,7 +28,7 @@ public class PayoutManager : MonoBehaviour
         onBetChanged?.Invoke(betAmount);
     }
 
-    // Call before spinning to deduct the bet. Returns false if insufficient credits
+    //Call before spinning to deduct the bet. Returns false if insufficient credits
     public bool TryPlaceBet()
     {
         if (Credits < betAmount) return false;
@@ -38,7 +38,7 @@ public class PayoutManager : MonoBehaviour
         return true;
     }
 
-    //Hook this to SlotMachine's onSpinResolved even
+    // SlotMachine's onSpinResolved event
     public void HandleSpinResult(bool won, SlotSymbol matchedSymbol, float payoutMultiplier)
     {
         if (!won) return;
@@ -53,4 +53,10 @@ public class PayoutManager : MonoBehaviour
         betAmount = Mathf.Max(1f, amount);
         onBetChanged?.Invoke(betAmount);
     }
+
+    // Connected this directly to the BetUpButton's OnClick().
+    public void IncreaseBet() => SetBetAmount(betAmount + 5f);
+
+    // Connected this directly to the BetDownButton's OnClick().
+    public void DecreaseBet() => SetBetAmount(betAmount - 5f);
 }

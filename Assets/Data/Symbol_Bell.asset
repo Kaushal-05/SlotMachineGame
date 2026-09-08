@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7395311c24eef6b4592d5c85216fc92c, type: 3}
   m_Name: Symbol_Bell
   m_EditorClassIdentifier: Assembly-CSharp::SlotSymbol
-  icon: {fileID: 0}
+  icon: {fileID: -2391669244243282240, guid: 04da12499e681284eb92eb54de45790b, type: 3}
   symbolName: Bell
   payoutMultiplier: 5
   spinWeight: 8

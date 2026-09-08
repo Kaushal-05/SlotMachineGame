@@ -1,11 +1,9 @@
 using UnityEngine;
 using TMPro;
 
-/// <summary>
-/// Listens to PayoutManager's credit/bet changes and updates the on-screen
-/// TextMeshPro labels. Kept separate from PayoutManager itself so the economy
-/// logic doesn't need to know anything about UI Text components.
-/// </summary>
+
+//Listens to PayoutManager's credit/bet changes and updates the on-screen TextMeshPro labels. Kept separate from PayoutManager itself so the economy logic doesn't need to know anything about UI Text components.
+
 public class UIManager : MonoBehaviour
 {
     [Header("References")]

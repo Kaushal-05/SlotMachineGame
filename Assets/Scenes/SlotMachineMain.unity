@@ -329,7 +329,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -740, y: -279}
+  m_AnchoredPosition: {x: -545, y: -279}
   m_SizeDelta: {x: 85.6983, y: 83.3034}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &290247184
@@ -375,7 +375,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 290247185}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 579398965}
+        m_TargetAssemblyTypeName: PayoutManager, Assembly-CSharp
+        m_MethodName: IncreaseBet
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &290247185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -852,6 +864,8 @@ GameObject:
   - component: {fileID: 579398967}
   - component: {fileID: 579398966}
   - component: {fileID: 579398965}
+  - component: {fileID: 579398968}
+  - component: {fileID: 579398969}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -876,33 +890,33 @@ MonoBehaviour:
   onCreditsChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 693523469}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
-        m_MethodName: SetText
-        m_Mode: 5
+        m_MethodName: 
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 200
+          m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
   onBetChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 212331754}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: TMPro.TextMeshProUGUI, Unity.TextMeshPro
-        m_MethodName: SetText
-        m_Mode: 5
+        m_MethodName: 
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 10
+          m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 0
 --- !u!114 &579398966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -916,9 +930,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SlotMachine
   reels:
-  - {fileID: 1111916774}
-  - {fileID: 1839118922}
-  - {fileID: 1987272339}
+  - {fileID: 1668008490}
+  - {fileID: 2031353227}
+  - {fileID: 2023597139}
   onSpinStarted:
     m_PersistentCalls:
       m_Calls:
@@ -952,6 +966,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &579398968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579398964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 206cc560674e9a1479b32b6aee4ee5ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIManager
+  payoutManager: {fileID: 579398965}
+  creditsText: {fileID: 693523469}
+  betText: {fileID: 212331754}
+--- !u!114 &579398969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579398964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5acb7dd12c66194c9ff6db9b4d950fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameFlowController
+  slotMachine: {fileID: 579398966}
+  payoutManager: {fileID: 579398965}
+  spinButton: {fileID: 1262862890}
+  betUpButton: {fileID: 290247184}
+  betDownButton: {fileID: 1373280878}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,6 +1236,143 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 693523467}
   m_CullTransparentMesh: 1
+--- !u!1 &832029912
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 832029913}
+  - component: {fileID: 832029915}
+  - component: {fileID: 832029914}
+  m_Layer: 5
+  m_Name: ChangeBet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &832029913
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832029912}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1882621450}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -545, y: -374}
+  m_SizeDelta: {x: 346.1072, y: 53.348}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &832029914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832029912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Use this to Change Bet
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &832029915
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 832029912}
+  m_CullTransparentMesh: 1
 --- !u!1 &945298784
 GameObject:
   m_ObjectHideFlags: 0
@@ -1355,7 +1538,6 @@ GameObject:
   - component: {fileID: 1111916771}
   - component: {fileID: 1111916773}
   - component: {fileID: 1111916772}
-  - component: {fileID: 1111916774}
   m_Layer: 5
   m_Name: SymbolDisplay
   m_TagString: Untagged
@@ -1420,27 +1602,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1111916770}
   m_CullTransparentMesh: 1
---- !u!114 &1111916774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1111916770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ce89024a1bf24342a77fb67424478fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Reel
-  symbolDisplay: {fileID: 1111916772}
-  symbolPool:
-  - {fileID: 11400000, guid: 3522d55dc9228594dacfbc890bc6bc2f, type: 2}
-  - {fileID: 11400000, guid: 7aad0c99288994546864a9795cd168d8, type: 2}
-  - {fileID: 11400000, guid: ba9fbd4948d276c4ba7eca749da483ae, type: 2}
-  - {fileID: 11400000, guid: d412f206c5f46b74abb21d09c1dd1ec7, type: 2}
-  spinCycles: 12
-  spinDuration: 1.2
-  startDelay: 0
 --- !u!1 &1166027387
 GameObject:
   m_ObjectHideFlags: 0
@@ -1452,6 +1613,7 @@ GameObject:
   - component: {fileID: 1166027388}
   - component: {fileID: 1166027390}
   - component: {fileID: 1166027389}
+  - component: {fileID: 1166027391}
   m_Layer: 5
   m_Name: Lever
   m_TagString: Untagged
@@ -1475,8 +1637,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 266.8457, y: -209.37958}
-  m_SizeDelta: {x: 109.6914, y: 315.2408}
+  m_AnchoredPosition: {x: 270.36633, y: -289.1197}
+  m_SizeDelta: {x: 116.7327, y: 155.7606}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1166027389
 MonoBehaviour:
@@ -1516,6 +1678,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1166027387}
   m_CullTransparentMesh: 1
+--- !u!114 &1166027391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1166027387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72b7bedae7c0d584491f1998b954cff2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LeverController
+  leverUpSprite: {fileID: 1864720231984191186, guid: 58fe6b052274fac4ca84d89305e224e0, type: 3}
+  leverDownSprite: {fileID: 5725053632269954588, guid: 4a8b9575feee44343a09b47785ec097b, type: 3}
+  pulledOffset: {x: 0, y: -60}
+  pullDuration: 0.16
+  holdAtBottom: 0.1
+  springBackDuration: 0.35
+  slotMachine: {fileID: 579398966}
+  gameFlow: {fileID: 579398969}
 --- !u!1 &1262862888
 GameObject:
   m_ObjectHideFlags: 0
@@ -1598,7 +1780,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1262862891}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 579398969}
+        m_TargetAssemblyTypeName: GameFlowController, Assembly-CSharp
+        m_MethodName: RequestSpin
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1262862891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1672,7 +1866,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -745, y: -415}
+  m_AnchoredPosition: {x: -550, y: -462}
   m_SizeDelta: {x: 85.6983, y: 83.3034}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1373280878
@@ -1718,7 +1912,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1373280879}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 579398965}
+        m_TargetAssemblyTypeName: PayoutManager, Assembly-CSharp
+        m_MethodName: DecreaseBet
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1373280879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1906,6 +2112,7 @@ GameObject:
   - component: {fileID: 1668008489}
   - component: {fileID: 1668008488}
   - component: {fileID: 1668008487}
+  - component: {fileID: 1668008490}
   m_Layer: 5
   m_Name: Reel 1
   m_TagString: Untagged
@@ -1985,6 +2192,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1668008485}
   m_CullTransparentMesh: 1
+--- !u!114 &1668008490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668008485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ce89024a1bf24342a77fb67424478fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Reel
+  symbolDisplay: {fileID: 1111916772}
+  symbolPool:
+  - {fileID: 11400000, guid: 3522d55dc9228594dacfbc890bc6bc2f, type: 2}
+  - {fileID: 11400000, guid: 7aad0c99288994546864a9795cd168d8, type: 2}
+  - {fileID: 11400000, guid: ba9fbd4948d276c4ba7eca749da483ae, type: 2}
+  - {fileID: 11400000, guid: d412f206c5f46b74abb21d09c1dd1ec7, type: 2}
+  spinDuration: 2
+  alignDuration: 0.3
+  scrollSpeed: 700
+  cellHeight: 0
+  startDelay: 0
+  landingOvershoot: 10
+  poolSize: 4
 --- !u!1 &1689795994
 GameObject:
   m_ObjectHideFlags: 0
@@ -2073,7 +2305,6 @@ GameObject:
   - component: {fileID: 1839118919}
   - component: {fileID: 1839118921}
   - component: {fileID: 1839118920}
-  - component: {fileID: 1839118922}
   m_Layer: 5
   m_Name: SymbolDisplay
   m_TagString: Untagged
@@ -2138,27 +2369,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1839118918}
   m_CullTransparentMesh: 1
---- !u!114 &1839118922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1839118918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ce89024a1bf24342a77fb67424478fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Reel
-  symbolDisplay: {fileID: 1839118920}
-  symbolPool:
-  - {fileID: 11400000, guid: 3522d55dc9228594dacfbc890bc6bc2f, type: 2}
-  - {fileID: 11400000, guid: 7aad0c99288994546864a9795cd168d8, type: 2}
-  - {fileID: 11400000, guid: ba9fbd4948d276c4ba7eca749da483ae, type: 2}
-  - {fileID: 11400000, guid: d412f206c5f46b74abb21d09c1dd1ec7, type: 2}
-  spinCycles: 12
-  spinDuration: 1.2
-  startDelay: 0
 --- !u!1 &1882621446
 GameObject:
   m_ObjectHideFlags: 0
@@ -2262,6 +2472,7 @@ RectTransform:
   - {fileID: 1689795995}
   - {fileID: 290247183}
   - {fileID: 1373280877}
+  - {fileID: 832029913}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2400,7 +2611,6 @@ GameObject:
   - component: {fileID: 1987272336}
   - component: {fileID: 1987272338}
   - component: {fileID: 1987272337}
-  - component: {fileID: 1987272339}
   m_Layer: 5
   m_Name: SymbolDisplay
   m_TagString: Untagged
@@ -2465,27 +2675,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1987272335}
   m_CullTransparentMesh: 1
---- !u!114 &1987272339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1987272335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ce89024a1bf24342a77fb67424478fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Reel
-  symbolDisplay: {fileID: 1987272337}
-  symbolPool:
-  - {fileID: 11400000, guid: 3522d55dc9228594dacfbc890bc6bc2f, type: 2}
-  - {fileID: 11400000, guid: 7aad0c99288994546864a9795cd168d8, type: 2}
-  - {fileID: 11400000, guid: ba9fbd4948d276c4ba7eca749da483ae, type: 2}
-  - {fileID: 11400000, guid: d412f206c5f46b74abb21d09c1dd1ec7, type: 2}
-  spinCycles: 12
-  spinDuration: 1.2
-  startDelay: 0
 --- !u!1 &2023597134
 GameObject:
   m_ObjectHideFlags: 0
@@ -2498,6 +2687,7 @@ GameObject:
   - component: {fileID: 2023597138}
   - component: {fileID: 2023597137}
   - component: {fileID: 2023597136}
+  - component: {fileID: 2023597139}
   m_Layer: 5
   m_Name: Reel 3
   m_TagString: Untagged
@@ -2577,6 +2767,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2023597134}
   m_CullTransparentMesh: 1
+--- !u!114 &2023597139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2023597134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ce89024a1bf24342a77fb67424478fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Reel
+  symbolDisplay: {fileID: 1987272337}
+  symbolPool:
+  - {fileID: 11400000, guid: 3522d55dc9228594dacfbc890bc6bc2f, type: 2}
+  - {fileID: 11400000, guid: 7aad0c99288994546864a9795cd168d8, type: 2}
+  - {fileID: 11400000, guid: ba9fbd4948d276c4ba7eca749da483ae, type: 2}
+  - {fileID: 11400000, guid: d412f206c5f46b74abb21d09c1dd1ec7, type: 2}
+  spinDuration: 2
+  alignDuration: 0.3
+  scrollSpeed: 700
+  cellHeight: 0
+  startDelay: 0
+  landingOvershoot: 10
+  poolSize: 4
 --- !u!1 &2031353222
 GameObject:
   m_ObjectHideFlags: 0
@@ -2589,6 +2804,7 @@ GameObject:
   - component: {fileID: 2031353226}
   - component: {fileID: 2031353225}
   - component: {fileID: 2031353224}
+  - component: {fileID: 2031353227}
   m_Layer: 5
   m_Name: Reel 2
   m_TagString: Untagged
@@ -2668,6 +2884,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2031353222}
   m_CullTransparentMesh: 1
+--- !u!114 &2031353227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2031353222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ce89024a1bf24342a77fb67424478fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Reel
+  symbolDisplay: {fileID: 1839118920}
+  symbolPool:
+  - {fileID: 11400000, guid: 3522d55dc9228594dacfbc890bc6bc2f, type: 2}
+  - {fileID: 11400000, guid: 7aad0c99288994546864a9795cd168d8, type: 2}
+  - {fileID: 11400000, guid: ba9fbd4948d276c4ba7eca749da483ae, type: 2}
+  - {fileID: 11400000, guid: d412f206c5f46b74abb21d09c1dd1ec7, type: 2}
+  spinDuration: 2
+  alignDuration: 0.3
+  scrollSpeed: 700
+  cellHeight: 0
+  startDelay: 0
+  landingOvershoot: 10
+  poolSize: 4
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

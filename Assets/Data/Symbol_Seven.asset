@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7395311c24eef6b4592d5c85216fc92c, type: 3}
   m_Name: Symbol_Seven
   m_EditorClassIdentifier: Assembly-CSharp::SlotSymbol
-  icon: {fileID: 0}
+  icon: {fileID: 2193077994593488821, guid: ea32eb4cd38911b4c99bce255654ea78, type: 3}
   symbolName: Seven
   payoutMultiplier: 10
   spinWeight: 3
